@@ -16,10 +16,16 @@ project(cchecks VERSION ${CCHECKS_VERSION} LANGUAGES C)
 # --------------------------------------------------------------------------------
 set(UNIT_TESTING OFF)
 
-enable_testing()
-
 add_subdirectory(corrosion)
-corrosion_import_crate(MANIFEST_PATH "${CMAKE_SOURCE_DIR}/Cargo.toml")
 
-add_subdirectory(cmocka)
-add_subdirectory(tests)
+if (NOT DEFINED CCHECKS_SOURCE_DIR OR CCHECKS_SOURCE_DIR MATCHES "")
+set(CCHECKS_SOURCE_DIR "${PROJECT_SOURCE_DIR}")
+endif()
+
+corrosion_import_crate(MANIFEST_PATH "${CCHECKS_SOURCE_DIR}/Cargo.toml")
+
+if (BUILD_CCHECKS_TESTS)
+    enable_testing()
+    add_subdirectory(cmocka)
+    add_subdirectory(tests)
+endif()

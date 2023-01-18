@@ -4,3 +4,6 @@
 [submodule "bindings/c/corrosion"]
 	path = bindings/c/corrosion
 	url = https://github.com/corrosion-rs/corrosion.git
+[submodule "bindings/cpp/googletest"]
+	path = bindings/cpp/googletest
+	url = https://github.com/google/googletest.git

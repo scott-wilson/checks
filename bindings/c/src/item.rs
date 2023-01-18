@@ -158,7 +158,7 @@ impl std::fmt::Debug for CChecksItem {
         unsafe {
             let c_str = CStr::from_ptr(c_display.string);
             let result = match c_str.to_str() {
-                Ok(s) => write!(f, "Item({})", s),
+                Ok(s) => write!(f, "{}", s),
                 Err(_) => Err(std::fmt::Error),
             };
 

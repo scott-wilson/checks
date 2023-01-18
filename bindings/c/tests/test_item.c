@@ -63,7 +63,16 @@ void int_item_destroy_fn(CChecksItem *item) {
 }
 
 CChecksString int_item_debug_fn(const CChecksItem *item) {
-  return item->display_fn(item);
+  int value = ((IntItem *)item)->value;
+  size_t length = snprintf(NULL, 0, "Item(%d)", value);
+  char *debug_string = malloc(length + 1);
+  sprintf(debug_string, "Item(%d)", value);
+
+  CChecksString result;
+  result.string = debug_string;
+  result.destroy_fn = destroy_string_ptr;
+
+  return result;
 }
 
 CChecksString int_item_display_fn(const CChecksItem *item) {
@@ -174,7 +183,16 @@ void string_item_destroy_fn(CChecksItem *item) {
 }
 
 CChecksString string_item_debug_fn(const CChecksItem *item) {
-  return item->display_fn(item);
+  char *value = ((StringItem *)item)->value;
+  size_t length = snprintf(NULL, 0, "Item(%s)", value);
+  char *debug_string = malloc(length + 1);
+  sprintf(debug_string, "Item(%s)", value);
+
+  CChecksString result;
+  result.string = debug_string;
+  result.destroy_fn = destroy_string_ptr;
+
+  return result;
 }
 
 CChecksString string_item_display_fn(const CChecksItem *item) {
