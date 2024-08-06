@@ -40,7 +40,7 @@ docs = [
     "myst-parser ~= 3.0; python_version > \"3.7\"",
     "sphinx ~= 5.3; python_version == \"3.7\"",
     "sphinx ~= 6.2; python_version >= \"3.8\" and python_version < \"3.9\"",
-    "sphinx ~= 7.2; python_version >= \"3.9\"",
+    "sphinx >= 7.2,< 9.0; python_version >= \"3.9\"",
     "sphinx-rtd-theme ~= 2.0",
 ]
 fuzz = ["openchecks[test]", "atheris ~= 2.3"]
