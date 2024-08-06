@@ -27,7 +27,7 @@ build = [
 ]
 test = [
     "hypothesis ~= 6.79",
-    "pytest ~= 7.4; python_version == \"3.7\"",
+    "pytest >= 7.4,< 9.0; python_version == \"3.7\"",
     "pytest ~= 8.2; python_version > \"3.7\"",
     "pytest-asyncio ~= 0.21",
     "pytest-cov ~= 4.1; python_version == \"3.7\"",
