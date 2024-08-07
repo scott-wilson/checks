@@ -48,7 +48,7 @@ jobs:
       - name: Run Cargo Fmt
         run: cargo fmt --check
       - name: Run Cargo Deny
-        uses: EmbarkStudios/cargo-deny-action@3f4a782664881cf5725d0ffd23969fcce89fd868 # v1.6.3
+        uses: EmbarkStudios/cargo-deny-action@8371184bd11e21dcf8ac82ebf8c9c9f74ebf7268 # v2.0.1
         if: ${{ matrix.os == 'ubuntu-latest' }}
       - name: Generate coverage report from Rust tests
         run: cargo llvm-cov --all-features --lcov --output-path lcov.info
