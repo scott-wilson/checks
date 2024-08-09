@@ -14,7 +14,7 @@ extern "C" {
 #include "openchecks/item.h"
 
 namespace OPENCHECKS_NAMESPACE {
-template <class T> class Items : private OpenChecksItems {
+template <class T> class OPENCHECKS_API Items : private OpenChecksItems {
 public:
   Items();
 

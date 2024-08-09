@@ -47,7 +47,7 @@ rust_c_artifacts = custom_target(
     '--manifest-path', cargo_toml,
     '--project-build-root', meson.project_build_root(),
     '--current-build-dir', meson.current_build_dir(),
-  ]
+  ],
 )
 copenchecks_include_dirs = include_directories('../c/include')
 copenchecks_dep = declare_dependency(
@@ -64,12 +64,11 @@ cppopenchecks_lib = library(
   dependencies: [copenchecks_dep],
 )
 
-
 pkg = import('pkgconfig')
 pkg.generate(
   name: meson.project_name(),
   description: 'A simple checks framework',
-  libraries: [cppopenchecks_lib]
+  libraries: [cppopenchecks_lib],
 )
 
 cmake = import('cmake')
@@ -78,7 +77,10 @@ cmake.write_basic_package_version_file(
   version: meson.project_version(),
 )
 conf = configuration_data()
-conf.set_quoted('PACKAGE_INCLUDE_INSTALL_DIR', '${PACKAGE_PREFIX_DIR}' / get_option('includedir'))
+conf.set_quoted(
+  'PACKAGE_INCLUDE_INSTALL_DIR',
+  '${PACKAGE_PREFIX_DIR}' / get_option('includedir'),
+)
 cmake.configure_package_config_file(
   name: meson.project_name(),
   input: 'cmake/cppopenchecks.cmake.in',
@@ -87,7 +89,7 @@ cmake.configure_package_config_file(
 
 cppopenchecks_dep = declare_dependency(
   include_directories: include_directories('include'),
-  link_with: cppopenchecks_lib
+  link_with: cppopenchecks_lib,
 )
 
 if build_tests

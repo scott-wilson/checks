@@ -16,7 +16,7 @@ extern "C" {
 #include "openchecks/status.h"
 
 namespace OPENCHECKS_NAMESPACE {
-class CheckHint {
+class OPENCHECKS_API CheckHint {
 public:
   enum Value : OpenChecksCheckHint {
     None = OPENCHECKS_CHECK_HINT_NONE,

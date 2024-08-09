@@ -16,7 +16,7 @@ namespace _private {
 void destroy_str_fn(struct OpenChecksString *str) { delete[] str->string; }
 } // namespace _private
 
-template <class T> class Item : private OpenChecksItem {
+template <class T> class OPENCHECKS_API Item : private OpenChecksItem {
 public:
   Item(const T &value, const std::string &type_hint)
       : _value(value), _type_hint(type_hint) {

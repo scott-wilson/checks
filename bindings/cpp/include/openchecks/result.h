@@ -19,7 +19,8 @@ extern "C" {
 namespace OPENCHECKS_NAMESPACE {
 template <class T> class BaseCheck;
 
-template <class T> class CheckResult : private OpenChecksCheckResult {
+template <class T>
+class OPENCHECKS_API CheckResult : private OpenChecksCheckResult {
 public:
   friend class BaseCheck<T>;
   CheckResult(OPENCHECKS_NAMESPACE::Status status, const std::string &message,

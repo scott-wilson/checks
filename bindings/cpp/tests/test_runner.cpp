@@ -68,7 +68,7 @@ TEST_P(CheckParameterizedTestFixture, ResultSuccess) {
   assert(result_error == check._error);
 
   if (result_status.has_failed() && result.can_fix()) {
-    OPENCHECKS_NAMESPACE::CheckResult fix_result =
+    OPENCHECKS_NAMESPACE::CheckResult<int> fix_result =
         OPENCHECKS_NAMESPACE::auto_fix(check);
 
     OPENCHECKS_NAMESPACE::Status fix_result_status = fix_result.status();
